@@ -1,12 +1,19 @@
-from db import Base, engine
-from helpers import (
+# lib/cli.py
+
+from lib.db import Base, engine
+from lib.helpers import (
     create_user, list_users, find_user_by_id, delete_user, view_user_favorites, add_favorite,
     create_meal, list_meals, find_meal_by_id, delete_meal, view_meal_ingredients, add_ingredient_to_meal,
     create_ingredient, list_ingredients, find_ingredient_by_id, delete_ingredient
 )
 
+# Ensure database tables exist
 Base.metadata.create_all(bind=engine)
 
+
+# -------------------------
+# MENUS
+# -------------------------
 
 def main_menu():
     print("\n===== MAIN MENU =====")
@@ -50,6 +57,10 @@ def ingredients_menu():
     print("0. Back")
     return input("> ").strip()
 
+
+# -------------------------
+# LOOP CONTROLLERS
+# -------------------------
 
 def run_users_menu():
     while True:
@@ -109,6 +120,10 @@ def run_ingredients_menu():
         else:
             print("Invalid choice")
 
+
+# -------------------------
+# ENTRY POINT
+# -------------------------
 
 def main():
     print("Welcome to the Meal Analysis CLI!")

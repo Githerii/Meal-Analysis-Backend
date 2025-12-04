@@ -1,5 +1,10 @@
-from db.models import User, Meal, Ingredient, MealIngredient, Favorite
+# lib/helpers.py
 
+from lib.db.models import User, Meal, Ingredient, MealIngredient, Favorite
+
+# -------------------------
+# GENERIC INPUT HELPERS
+# -------------------------
 
 def prompt_int(message):
     """Ask user for an integer; return None if invalid."""
@@ -18,6 +23,10 @@ def prompt_nonempty(message):
         return None
     return val
 
+
+# -------------------------
+# USER HELPERS
+# -------------------------
 
 def create_user():
     name = prompt_nonempty("Enter user name: ")
@@ -86,6 +95,10 @@ def add_favorite():
     except Exception as e:
         print("Error adding favorite:", e)
 
+
+# -------------------------
+# MEAL HELPERS
+# -------------------------
 
 def create_meal():
     name = prompt_nonempty("Meal name: ")
@@ -165,6 +178,10 @@ def add_ingredient_to_meal():
     except Exception as e:
         print("Error adding ingredient:", e)
 
+
+# -------------------------
+# INGREDIENT HELPERS
+# -------------------------
 
 def create_ingredient():
     name = prompt_nonempty("Ingredient name: ")
