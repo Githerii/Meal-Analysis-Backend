@@ -1,5 +1,3 @@
-# lib/cli.py
-
 from lib.db import Base, engine
 from lib.helpers import (
     create_user, list_users, find_user_by_id, delete_user, view_user_favorites, add_favorite,
@@ -7,16 +5,10 @@ from lib.helpers import (
     create_ingredient, list_ingredients, find_ingredient_by_id, delete_ingredient
 )
 
-# Ensure database tables exist
 Base.metadata.create_all(bind=engine)
 
-
-# -------------------------
-# MENUS
-# -------------------------
-
 def main_menu():
-    print("\n===== MAIN MENU =====")
+    print("\n===== WELCOME TO THE MENU =====")
     print("1. Users")
     print("2. Meals")
     print("3. Ingredients")
@@ -56,11 +48,6 @@ def ingredients_menu():
     print("4. Delete Ingredient")
     print("0. Back")
     return input("> ").strip()
-
-
-# -------------------------
-# LOOP CONTROLLERS
-# -------------------------
 
 def run_users_menu():
     while True:
@@ -120,13 +107,8 @@ def run_ingredients_menu():
         else:
             print("Invalid choice")
 
-
-# -------------------------
-# ENTRY POINT
-# -------------------------
-
 def main():
-    print("Welcome to the Meal Analysis CLI!")
+    print("Welcome to Nathan's Meal Analysis CLI!")
     while True:
         choice = main_menu()
         if choice == "1":
@@ -136,7 +118,7 @@ def main():
         elif choice == "3":
             run_ingredients_menu()
         elif choice == "0":
-            print("Goodbye!")
+            print("Kwaheri!")
             break
         else:
             print("Invalid choice")

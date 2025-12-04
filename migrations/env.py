@@ -9,7 +9,7 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# ---- IMPORT MODELS ----
+# IMPORT MODELS 
 import sys
 import os
 
@@ -25,7 +25,7 @@ from lib.db.models import Base
 target_metadata = Base.metadata
 
 
-# ----------- Offline Migrations -----------
+# Offline Migrations 
 def run_migrations_offline() -> None:
     url = config.get_main_option("sqlalchemy.url")
     context.configure(
@@ -39,7 +39,7 @@ def run_migrations_offline() -> None:
         context.run_migrations()
 
 
-# ----------- Online Migrations -----------
+#  Online Migrations 
 def run_migrations_online() -> None:
 
     connectable = engine_from_config(
