@@ -1,7 +1,12 @@
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-DATABASE_URL = "sqlite:///../../meal_analysis.db"  # relative to lib/db when running alembic - adjust if needed
+# Resolve database path dynamically
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+DATABASE_PATH = os.path.join(BASE_DIR, "meal_analysis.db")
+
+DATABASE_URL = f"sqlite:///{DATABASE_PATH}"
 
 engine = create_engine(DATABASE_URL, echo=False, future=True)
 Session = sessionmaker(bind=engine, autoflush=False, future=True)
