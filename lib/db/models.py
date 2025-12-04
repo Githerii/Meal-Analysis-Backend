@@ -2,9 +2,6 @@ from sqlalchemy import Column, Integer, String, Text, ForeignKey, UniqueConstrai
 from sqlalchemy.orm import relationship, validates
 from . import Base, Session
 
-# -----------------------------
-# USER MODEL
-# -----------------------------
 class User(Base):
     __tablename__ = "users"
 
@@ -62,10 +59,6 @@ class User(Base):
         session.close()
         return True
 
-
-# -----------------------------
-# MEAL MODEL
-# -----------------------------
 class Meal(Base):
     __tablename__ = "meals"
 
@@ -137,10 +130,6 @@ class Meal(Base):
         session.close()
         return True
 
-
-# -----------------------------
-# INGREDIENT MODEL
-# -----------------------------
 class Ingredient(Base):
     __tablename__ = "ingredients"
 
@@ -198,10 +187,6 @@ class Ingredient(Base):
         session.close()
         return True
 
-
-# -----------------------------
-# MEAL INGREDIENT (JOIN TABLE)
-# -----------------------------
 class MealIngredient(Base):
     __tablename__ = "meal_ingredients"
     __table_args__ = (
@@ -258,10 +243,6 @@ class MealIngredient(Base):
         session.close()
         return True
 
-
-# -----------------------------
-# FAVORITE MODEL
-# -----------------------------
 class Favorite(Base):
     __tablename__ = "favorites"
 
