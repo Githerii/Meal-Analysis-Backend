@@ -1,5 +1,7 @@
 from sqlalchemy import Column, Integer, ForeignKey
 from sqlalchemy.orm import relationship
+from sqlalchemy.orm import joinedload
+
 from .. import Base, Session
 
 class Favorite(Base):
@@ -28,7 +30,7 @@ class Favorite(Base):
     @classmethod
     def find_for_user(cls, user_id):
         session = Session()
-        res = session.query(cls).filter_by(user_id=user_id).all()
+        res = session.query(cls).options(joinedload(cls.meal)).filter_by(user_id=user_id).all()
         session.close()
         return res
 
